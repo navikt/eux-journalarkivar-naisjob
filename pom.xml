@@ -162,6 +162,10 @@
             <groupId>no.nav.eux</groupId>
             <artifactId>eux-logging</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.oshai</groupId>
+            <artifactId>kotlin-logging-jvm</artifactId>
+        </dependency>
 
         <!-- Test -->
         <dependency>
