@@ -1,17 +1,22 @@
 package no.nav.eux.journalarkivar.naisjob
 
 import io.github.oshai.kotlinlogging.KotlinLogging.logger
+import no.nav.eux.journalarkivar.naisjob.integration.journalarkivar.EuxJournalarkivarClient
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class Application : CommandLineRunner {
+class Application(
+    val client: EuxJournalarkivarClient
+) : CommandLineRunner {
 
     val log = logger {}
 
     override fun run(vararg args: String?) {
-        log.info { "hei verden!" }
+        log.info { "ferdigstiller journalposter.." }
+        client.ferdigstillJournalposter()
+        log.info { "journalposter ferdigstilt" }
     }
 }
 

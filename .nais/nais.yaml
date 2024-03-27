@@ -19,6 +19,15 @@ spec:
     requests:
       cpu: 800m
       memory: 512Mi
+  accessPolicy:
+    outbound:
+      rules:
+        - application: {{ application.eux-journalarkivar.name }}
   azure:
     application:
       enabled: true
+  env:
+    - name: CLIENT_EUXJOURNALARKIVAR_ENDPOINT
+      value: {{ client.eux-journalarkivar.endpoint }}
+    - name: CLIENT_EUXJOURNALARKIVAR_SCOPE
+      value: {{ client.eux-journalarkivar.scope }}

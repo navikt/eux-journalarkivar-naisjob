@@ -1,17 +1,12 @@
 name: eux-journalarkivar-naisjob
 application:
-  eux-neessi:
-    name: eux-neessi
+  eux-journalarkivar:
+    name: eux-journalarkivar
     namespace: eessibasis
-  eux-journal:
-    name: eux-journal
-    namespace: eessibasis
-  eux-nav-rinasak-datasync:
-    name: eux-nav-rinasak-datasync
-    namespace: eessibasis
-  eux-fagmodul-journalfoering:
-    name: eux-fagmodul-journalfoering
-    namespace: eessibasis
+client:
+  euxjournalarkivar:
+    endpoint: http://eux-journalarkivar
+    scope: api://prod-gcp.eessibasis.eux-journalarkivar/.default
 cluster:
   fss: prod-fss
   gcp: prod-gcp
