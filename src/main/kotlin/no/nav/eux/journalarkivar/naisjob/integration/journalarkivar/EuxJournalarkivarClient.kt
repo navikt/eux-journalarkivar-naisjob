@@ -20,6 +20,7 @@ class EuxJournalarkivarClient(
             .uri("${euxJournalarkivarUrl}/api/v1/ferdigstillJournalposter")
             .contentType(APPLICATION_JSON)
             .accept(MediaType.ALL)
+            .body("{}")
             .retrieve()
             .toBodilessEntity()
     }
