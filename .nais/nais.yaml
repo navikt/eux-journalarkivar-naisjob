@@ -1,5 +1,5 @@
-kind: Application
-apiVersion: nais.io/v1alpha1
+apiVersion: nais.io/v1
+kind: Naisjob
 metadata:
   name: {{ name }}
   namespace: eessibasis
@@ -7,35 +7,11 @@ metadata:
     team: eessibasis
 spec:
   image: {{ image }}
-  ingresses:
-    - {{ ingress }}
-  gcp:
-    sqlInstances:
-      - type: POSTGRES_14
-        diskAutoresize: true
-        tier: {{ database.tier }}
-        databases:
-          - name: {{ database.name }}
-            envVarPrefix:
-              DATABASE
-  liveness:
-    path: /actuator/health
-    port: 8080
-    initialDelay: 40
-    timeout: 90
-  port: 8080
-  prometheus:
-    enabled: true
-    path: /actuator/prometheus
-  readiness:
-    path: /actuator/health
-    port: 8080
-    initialDelay: 40
-    timeout: 90
-  replicas:
-    min: 1
-    max: 2
-    cpuThresholdPercentage: 50
+  schedule: '* * * * *'
+  ttlSecondsAfterFinished: 340
+  backoffLimit: 2
+  successfulJobsHistoryLimit: 10
+  failedJobsHistoryLimit: 10
   resources:
     limits:
       cpu: "1"
@@ -46,36 +22,3 @@ spec:
   azure:
     application:
       enabled: true
-      allowAllUsers: true
-      replyURLs:
-        - "{{ ingress }}/callback"
-      claims:
-        extra:
-          - "NAVident"
-    sidecar:
-      enabled: true
-      autoLogin: true
-      autoLoginIgnorePaths:
-        - /api/**
-  observability:
-    autoInstrumentation:
-      enabled: true
-      runtime: java
-  accessPolicy:
-    inbound:
-      rules:
-        - application: {{ application.eux-neessi.name }}
-          namespace: {{ application.eux-neessi.namespace }}
-          cluster: {{ cluster.fss }}
-        - application: {{ application.eux-neessi.name }}
-          namespace: {{ application.eux-neessi.namespace }}
-          cluster: {{ cluster.gcp }}
-        - application: {{ application.eux-nav-rinasak-datasync.name }}
-          namespace: {{ application.eux-nav-rinasak-datasync.namespace }}
-          cluster: {{ cluster.gcp }}
-        - application: {{ application.eux-journal.name }}
-          namespace: {{ application.eux-journal.namespace }}
-          cluster: {{ cluster.gcp }}
-        - application: {{ application.eux-fagmodul-journalfoering.name }}
-          namespace: {{ application.eux-fagmodul-journalfoering.namespace }}
-          cluster: {{ cluster.fss }}

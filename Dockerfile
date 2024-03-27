@@ -1,3 +1,3 @@
 FROM ghcr.io/navikt/baseimages/temurin:21
 
-ADD eux-nav-rinasak-webapp/target/eux-nav-rinasak.jar /app/app.jar
+ADD target/eux-journalarkivar-naisjob.jar /app/app.jar

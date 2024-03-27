@@ -1,22 +1,15 @@
-package no.nav.eux.rinasak
+package no.nav.eux.journalarkivar.naisjob
 
-import no.nav.security.token.support.spring.api.EnableJwtTokenValidation
-import org.openapitools.SpringDocConfiguration
+import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.runApplication
-import org.springframework.context.annotation.Import
 
-@EnableJwtTokenValidation(
-    ignore = [
-        "org.springframework",
-        "org.springdoc"
-    ]
-)
 @SpringBootApplication
-@Import(value = [SpringDocConfiguration::class])
-@EnableConfigurationProperties(DataSourceProperties::class)
-class Application
+class Application : CommandLineRunner {
+    override fun run(vararg args: String?) {
+        println("Hello, World!")
+    }
+}
 
 fun main(args: Array<String>) {
     runApplication<Application>(*args)
