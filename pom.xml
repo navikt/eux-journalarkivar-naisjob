@@ -152,5 +152,4 @@
             <artifactId>kotlin-logging-jvm</artifactId>
         </dependency>
     </dependencies>
-
 </project>
