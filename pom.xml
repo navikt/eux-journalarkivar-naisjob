@@ -7,7 +7,7 @@
     <parent>
         <groupId>no.nav.eux</groupId>
         <artifactId>parent-pom</artifactId>
-        <version>1.0.12</version>
+        <version>1.0.13</version>
     </parent>
 
     <groupId>no.nav.eux.journalarkivar.naisjob</groupId>
@@ -25,13 +25,6 @@
         <developerConnection>scm:git:https://github.com/navikt/eux-journalarkivar-naisjob.git</developerConnection>
         <url>https://github.com/navikt/eux-journalarkivar-naisjob.git</url>
     </scm>
-
-    <repositories>
-        <repository>
-            <id>mavenCentral</id>
-            <url>https://repo1.maven.org/maven2/</url>
-        </repository>
-    </repositories>
 
     <build>
         <finalName>${project.artifactId}</finalName>
