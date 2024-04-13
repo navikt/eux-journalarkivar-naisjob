@@ -28,6 +28,6 @@ spec:
       enabled: true
   env:
     - name: CLIENT_EUXJOURNALARKIVAR_ENDPOINT
-      value: {{ client.eux-journalarkivar.endpoint }}
+      value: {{ application.eux-journalarkivar.endpoint }}
     - name: CLIENT_EUXJOURNALARKIVAR_SCOPE
-      value: {{ client.eux-journalarkivar.scope }}
+      value: {{ application.eux-journalarkivar.scope }}
