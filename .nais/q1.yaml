@@ -1,4 +1,6 @@
 name: eux-journalarkivar-naisjob-q1
+schedule: '0 1 * * *'
+
 application:
   eux-journalarkivar:
     name: eux-journalarkivar-q1
