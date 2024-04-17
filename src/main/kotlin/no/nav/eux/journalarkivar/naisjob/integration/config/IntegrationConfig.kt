@@ -4,8 +4,6 @@ import no.nav.security.token.support.client.core.ClientProperties
 import no.nav.security.token.support.client.core.oauth2.OAuth2AccessTokenService
 import no.nav.security.token.support.client.spring.ClientConfigurationProperties
 import no.nav.security.token.support.client.spring.oauth2.EnableOAuth2Client
-import no.nav.security.token.support.core.context.TokenValidationContextHolder
-import no.nav.security.token.support.spring.SpringTokenValidationContextHolder
 import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -42,10 +40,6 @@ class IntegrationConfig {
             .additionalInterceptors(bearerTokenInterceptor(clientProperties, components.oAuth2AccessTokenService))
             .build()
     }
-
-    @Bean
-    fun tokenValidationContextHolder(): TokenValidationContextHolder =
-        SpringTokenValidationContextHolder()
 
     fun bearerTokenInterceptor(
         clientProperties: ClientProperties,
