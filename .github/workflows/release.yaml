@@ -104,7 +104,7 @@ jobs:
           PRINT_PAYLOAD: true
 
   deploy-feilregistrer-q2:
-    name: 'Deploy to q2'
+    name: 'Deploy feilregistrer to q2'
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -119,7 +119,7 @@ jobs:
           PRINT_PAYLOAD: true
 
   deploy-ferdigstill-q2:
-    name: 'Deploy to q2'
+    name: 'Deploy ferdigstill to q2'
     runs-on: ubuntu-latest
     needs: build
     steps:

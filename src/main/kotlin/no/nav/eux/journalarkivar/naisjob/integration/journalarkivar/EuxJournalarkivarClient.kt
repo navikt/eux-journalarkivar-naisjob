@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate
 
 @Component
 class EuxJournalarkivarClient(
-    @Value("\$arkivarprosess")
+    @Value("\${arkivarprosess}")
     val arkivarprosess: String,
     @Value("\${endpoint.euxjournalarkivar}")
     val euxJournalarkivarUrl: String,
