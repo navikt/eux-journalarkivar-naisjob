@@ -1,7 +1,7 @@
-name: eux-journalarkivar-naisjob-q2
+name: eux-journalarkivar-feilregistrer-naisjob-q2
 schedule: "* * * * *"
 
-arkivarprosess: ferdigstill
+arkivarprosess: feilregistrer
 
 application:
   eux-journalarkivar:

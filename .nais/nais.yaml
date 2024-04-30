@@ -27,6 +27,8 @@ spec:
     application:
       enabled: true
   env:
+    - name: ARKIVARPROSESS
+      value: {{ arkivarprosess }}
     - name: CLIENT_EUXJOURNALARKIVAR_ENDPOINT
       value: {{ application.eux-journalarkivar.endpoint }}
     - name: CLIENT_EUXJOURNALARKIVAR_SCOPE

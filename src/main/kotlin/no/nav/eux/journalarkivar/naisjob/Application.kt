@@ -17,6 +17,7 @@ class Application(
         log.info { "ferdigstiller journalposter.." }
         client.ferdigstillJournalposter()
         log.info { "journalposter ferdigstilt" }
+        client.execute()
     }
 }
 

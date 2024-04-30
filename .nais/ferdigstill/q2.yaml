@@ -1,4 +1,4 @@
-name: eux-journalarkivar-naisjob-q2
+name: eux-journalarkivar-ferdigstill-naisjob-q2
 schedule: "* * * * *"
 
 arkivarprosess: ferdigstill

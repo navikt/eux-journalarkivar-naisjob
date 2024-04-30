@@ -1,3 +1,5 @@
+arkivarprosess: ${ARKIVARPROSESS}
+
 spring:
   main:
     web-application-type: none
