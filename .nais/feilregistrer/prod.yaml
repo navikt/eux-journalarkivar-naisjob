@@ -1,0 +1,15 @@
+name: eux-journalarkivar-feilregistrer-naisjob
+schedule: "* * * * *"
+
+arkivarprosess: feilregistrer
+
+application:
+  eux-journalarkivar:
+    name: eux-journalarkivar
+    namespace: eessibasis
+    endpoint: http://eux-journalarkivar
+    scope: api://dev-gcp.eessibasis.eux-journalarkivar/.default
+
+cluster:
+  fss: dev-fss
+  gcp: dev-gcp

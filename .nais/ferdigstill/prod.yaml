@@ -1,5 +1,5 @@
-name: eux-journalarkivar-naisjob
-schedule: "0 1 * * *"
+name: eux-journalarkivar-ferdigstill-naisjob
+schedule: "* * * * *"
 
 arkivarprosess: ferdigstill
 
@@ -8,8 +8,8 @@ application:
     name: eux-journalarkivar
     namespace: eessibasis
     endpoint: http://eux-journalarkivar
-    scope: api://prod-gcp.eessibasis.eux-journalarkivar/.default
+    scope: api://dev-gcp.eessibasis.eux-journalarkivar/.default
 
 cluster:
-  fss: prod-fss
-  gcp: prod-gcp
+  fss: dev-fss
+  gcp: dev-gcp

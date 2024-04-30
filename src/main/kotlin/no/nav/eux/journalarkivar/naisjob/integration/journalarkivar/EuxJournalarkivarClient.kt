@@ -20,26 +20,12 @@ class EuxJournalarkivarClient(
     val log = logger {}
 
     fun execute() {
-        if (arkivarprosess == "feilregistrer") {
-            euxJournalarkivarRestTemplate
-                .post()
-                .uri("${euxJournalarkivarUrl}/api/v1/arkivarprosess/$arkivarprosess/execute")
-                .contentType(APPLICATION_JSON)
-                .accept(MediaType.ALL)
-                .retrieve()
-                .toBodilessEntity()
-        } else {
-            log.info { "Arkivarprosess: $arkivarprosess" }
-        }
-    }
-
-    fun ferdigstillJournalposter() {
+        log.info { "execute: $arkivarprosess" }
         euxJournalarkivarRestTemplate
             .post()
-            .uri("${euxJournalarkivarUrl}/api/v1/ferdigstillJournalposter")
+            .uri("${euxJournalarkivarUrl}/api/v1/arkivarprosess/$arkivarprosess/execute")
             .contentType(APPLICATION_JSON)
             .accept(MediaType.ALL)
-            .body("{}")
             .retrieve()
             .toBodilessEntity()
     }
