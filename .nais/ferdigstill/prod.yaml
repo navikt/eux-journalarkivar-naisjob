@@ -1,5 +1,5 @@
 name: eux-journalarkivar-ferdigstill-naisjob
-schedule: "20 10 * * *"
+schedule: "15 11 * * *"
 
 arkivarprosess: ferdigstill
 
