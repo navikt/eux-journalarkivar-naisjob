@@ -1,5 +1,5 @@
 name: eux-journalarkivar-feilregistrer-naisjob-q1
-schedule: "* * * * *"
+schedule: "0 1 * * *"
 
 arkivarprosess: feilregistrer
 
