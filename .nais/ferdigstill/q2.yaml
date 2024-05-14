@@ -9,7 +9,3 @@ application:
     namespace: eessibasis
     endpoint: http://eux-journalarkivar-q2
     scope: api://dev-gcp.eessibasis.eux-journalarkivar-q2/.default
-
-cluster:
-  fss: dev-fss
-  gcp: dev-gcp
