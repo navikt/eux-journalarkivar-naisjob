@@ -157,7 +157,7 @@ jobs:
       - name: 'Calling nais deploy action for prod'
         uses: nais/deploy/actions/deploy@v2
         env:
-          CLUSTER: dev-gcp
+          CLUSTER: prod-gcp
           RESOURCE: .nais/nais.yaml
           VAR: image=${{ needs.build.outputs.docker-image }}
           VARS: .nais/feilregistrer/prod.yaml
