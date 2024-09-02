@@ -21,12 +21,16 @@ class EuxJournalarkivarClient(
 
     fun execute() {
         log.info { "execute: $arkivarprosess" }
-        euxJournalarkivarRestTemplate
-            .post()
-            .uri("${euxJournalarkivarUrl}/api/v1/arkivarprosess/$arkivarprosess/execute")
-            .contentType(APPLICATION_JSON)
-            .accept(MediaType.ALL)
-            .retrieve()
-            .toBodilessEntity()
+        try {
+            euxJournalarkivarRestTemplate
+                .post()
+                .uri("${euxJournalarkivarUrl}/api/v1/arkivarprosess/$arkivarprosess/execute")
+                .contentType(APPLICATION_JSON)
+                .accept(MediaType.ALL)
+                .retrieve()
+                .toBodilessEntity()
+        } catch (e: Exception) {
+            log.warn(e) { "arkivarprosess $arkivarprosess ble ikke bekreftet fullført" }
+        }
     }
 }
