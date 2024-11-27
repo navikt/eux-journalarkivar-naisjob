@@ -26,3 +26,8 @@ no.nav.security.jwt:
 
 endpoint:
   euxjournalarkivar: ${CLIENT_EUXJOURNALARKIVAR_ENDPOINT}
+
+logging:
+  structured:
+    format:
+      console: logstash
