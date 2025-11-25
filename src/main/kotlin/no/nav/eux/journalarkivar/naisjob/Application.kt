@@ -10,7 +10,7 @@ class Application(
     val client: EuxJournalarkivarClient
 ) : CommandLineRunner {
 
-    override fun run(vararg args: String?) {
+    override fun run(vararg args: String) {
         client.execute()
     }
 }

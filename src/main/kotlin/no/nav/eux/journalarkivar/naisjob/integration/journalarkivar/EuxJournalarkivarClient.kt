@@ -10,9 +10,9 @@ import org.springframework.web.client.RestTemplate
 
 @Component
 class EuxJournalarkivarClient(
-    @Value("\${arkivarprosess}")
+    @param:Value("\${arkivarprosess}")
     val arkivarprosess: String,
-    @Value("\${endpoint.euxjournalarkivar}")
+    @param:Value("\${endpoint.euxjournalarkivar}")
     val euxJournalarkivarUrl: String,
     val euxJournalarkivarRestTemplate: RestTemplate
 ) {
