@@ -133,33 +133,32 @@ jobs:
           VARS: .nais/ferdigstill/q2.yaml
           PRINT_PAYLOAD: true
 
-# Major Spring upgrade, vent med prod
-#  deploy-ferdigstill-prod:
-#    name: 'Deploy ferdigstill to prod'
-#    runs-on: ubuntu-latest
-#    needs: [build, deploy-ferdigstill-q1, deploy-ferdigstill-q2]
-#    steps:
-#      - uses: actions/checkout@v4
-#      - name: 'Calling nais deploy action for prod'
-#        uses: nais/deploy/actions/deploy@v2
-#        env:
-#          CLUSTER: prod-gcp
-#          RESOURCE: .nais/nais.yaml
-#          VAR: image=${{ needs.build.outputs.docker-image }}
-#          VARS: .nais/ferdigstill/prod.yaml
-#          PRINT_PAYLOAD: true
-#
-#  deploy-feilregistrer-prod:
-#    name: 'Deploy feilregistrer to prod'
-#    runs-on: ubuntu-latest
-#    needs: [build, deploy-feilregistrer-q1, deploy-feilregistrer-q2]
-#    steps:
-#      - uses: actions/checkout@v4
-#      - name: 'Calling nais deploy action for prod'
-#        uses: nais/deploy/actions/deploy@v2
-#        env:
-#          CLUSTER: prod-gcp
-#          RESOURCE: .nais/nais.yaml
-#          VAR: image=${{ needs.build.outputs.docker-image }}
-#          VARS: .nais/feilregistrer/prod.yaml
-#          PRINT_PAYLOAD: true
+  deploy-ferdigstill-prod:
+    name: 'Deploy ferdigstill to prod'
+    runs-on: ubuntu-latest
+    needs: [build, deploy-ferdigstill-q1, deploy-ferdigstill-q2]
+    steps:
+      - uses: actions/checkout@v4
+      - name: 'Calling nais deploy action for prod'
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: .nais/nais.yaml
+          VAR: image=${{ needs.build.outputs.docker-image }}
+          VARS: .nais/ferdigstill/prod.yaml
+          PRINT_PAYLOAD: true
+
+  deploy-feilregistrer-prod:
+    name: 'Deploy feilregistrer to prod'
+    runs-on: ubuntu-latest
+    needs: [build, deploy-feilregistrer-q1, deploy-feilregistrer-q2]
+    steps:
+      - uses: actions/checkout@v4
+      - name: 'Calling nais deploy action for prod'
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: .nais/nais.yaml
+          VAR: image=${{ needs.build.outputs.docker-image }}
+          VARS: .nais/feilregistrer/prod.yaml
+          PRINT_PAYLOAD: true
