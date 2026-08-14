@@ -18,6 +18,9 @@
         <maven.compiler.source>25</maven.compiler.source>
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <httpclient5.version>5.6.4</httpclient5.version>
+        <httpcore5.version>5.4.3</httpcore5.version>
+        <log4j2.version>2.26.1</log4j2.version>
     </properties>
 
     <scm>
@@ -25,6 +28,43 @@
         <developerConnection>scm:git:https://github.com/navikt/eux-journalarkivar-naisjob.git</developerConnection>
         <url>https://github.com/navikt/eux-journalarkivar-naisjob.git</url>
     </scm>
+
+    <!--
+        Sikkerhetspins. Parent-pom importerer spring-boot-dependencies med import-scope,
+        saa <property>-override alene slaar ikke gjennom paa BOM-styrte versjoner.
+        Modulens egen dependencyManagement vinner over parent-arvede BOM-er.
+        Kan fjernes naar parent-pom/Spring Boot-BOM leverer >= disse versjonene.
+    -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- CVE-2026-49844: log4j-api 2.25.4 -> 2.26.1 (log4j-bom pinner alle log4j-artefakter) -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-bom</artifactId>
+                <version>${log4j2.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- CVE-2026-64607: httpclient5 5.6.1 -> 5.6.4 -->
+            <dependency>
+                <groupId>org.apache.httpcomponents.client5</groupId>
+                <artifactId>httpclient5</artifactId>
+                <version>${httpclient5.version}</version>
+            </dependency>
+            <!-- CVE-2026-54399: httpcore5 5.4.2 -> 5.4.3 -->
+            <dependency>
+                <groupId>org.apache.httpcomponents.core5</groupId>
+                <artifactId>httpcore5</artifactId>
+                <version>${httpcore5.version}</version>
+            </dependency>
+            <!-- CVE-2026-54428: httpcore5-h2 5.4.2 -> 5.4.3 -->
+            <dependency>
+                <groupId>org.apache.httpcomponents.core5</groupId>
+                <artifactId>httpcore5-h2</artifactId>
+                <version>${httpcore5.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <finalName>${project.artifactId}</finalName>
